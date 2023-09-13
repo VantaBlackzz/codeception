@@ -35,6 +35,8 @@ class DeleteGameByIdCest
 
     public function deleteGameById(ApiTester $apiTester): void
     {
+        $apiTester->wantToTest('Delete game by id');
+
         $response = $apiTester->sendDelete($this->gameId);
 
         $apiTester->seeResponseCodeIs(HttpCode::OK);
@@ -52,6 +54,8 @@ class DeleteGameByIdCest
     /** @dataProvider incorrectDataProvider */
     public function deleteGameWithIncorrectId(ApiTester $apiTester, Example $provider): void
     {
+        $apiTester->wantToTest('Delete game by incorrect id');
+
         $apiTester->sendDelete($provider['incorrectId']);
 
         $apiTester->seeResponseCodeIs(HttpCode::NOT_FOUND);

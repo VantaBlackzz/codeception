@@ -34,6 +34,8 @@ class UpdateGameInfoCest
 
     public function updateGameInfo(ApiTester $apiTester): void
     {
+        $apiTester->wantToTest('Update game info');
+
         $updateRequest = [
             'name' => self::GAME_NAME
         ];

@@ -43,6 +43,8 @@ class CreateNewGameCest
     /** @dataProvider incorrectDataProvider */
     public function createGameWithIncorrectData(ApiTester $apiTester, Example $provider): void
     {
+        $apiTester->wantToTest('Create new game with incorrect data');
+
         $apiTester->sendPostAsJson('', $provider['requestBody']);
 
         $apiTester->seeResponseCodeIs(HttpCode::BAD_REQUEST);

@@ -32,6 +32,8 @@ class GetGameByIdCest
 
     public function getGameById(ApiTester $apiTester): void
     {
+        $apiTester->wantToTest('Get game by id');
+
         $apiTester->sendGet($this->gameId);
 
         $apiTester->seeResponseCodeIs(HttpCode::OK);
